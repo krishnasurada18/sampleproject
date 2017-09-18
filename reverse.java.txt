@@ -1,0 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import static java.lang.Integer.reverse;
+
+public class StringReverseExample {
+
+    public static void main(String args[]) throws FileNotFoundException, IOExceptio {
+
+      
+        String str = "abcdf";
+        System.out.println("Original String: " + str);
+
+       
+      String  reverseStr = reverseRecursively(str);
+        System.out.println("Reverse String in Java using Recursion: " + reverseStr);
+
+    }
+
+    public static String reverse(String str) {
+        StringBuilder strBuilder = new StringBuilder();
+        char[] strChars = str.toCharArray();
+
+        for (int i = strChars.length - 1; i >= 0; i--) {
+            strBuilder.append(strChars[i]);
+        }
+
+        return strBuilder.toString();
+    }
+
+    public static String reverseRecursively(String str) {
+
+      
+        if (str.length() < 2) {
+            return str;
+        }
+
+        return reverseRecursively(str.substring(1)) + str.charAt(0);
+
+    }
+
+    private static class IOExceptio extends Exception {
+
+        public IOExceptio() {
+        }
+    }
+}
+
+    
